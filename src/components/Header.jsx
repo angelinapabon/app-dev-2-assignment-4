@@ -1,25 +1,26 @@
 import './Header.css';
+// Link replaces <a> tags so navigation doesn't reload the page
+import { Link } from 'react-router-dom';
 
 function Header({ storeName = 'GadgetGrove', cartCount }) {
   return (
     <header className="app-header">
       <div className="header-inner">
 
-        {/*Store Logo / Title*/}
+        {/*Store Logo and Title*/}
         <h1 className="logo">🛒 {storeName}</h1>
 
-        {/*Nav Menu*/}
+        {/*Nav Menu, links match the routes defined in App.jsx*/}
         <nav className="nav-menu">
-          <a href="#home" className="nav-link">Home</a>
-          <a href="#products" className="nav-link">Products</a>
-          <a href="#about" className="nav-link">About</a>
-          <a href="#contact" className="nav-link">Contact</a>
+          <Link to="/" className="nav-link">Home</Link>
+          <Link to="/products" className="nav-link">Products</Link>
+          <Link to="/cart" className="nav-link">Cart</Link>
         </nav>
 
-        {/*Cart Button with Cart Count*/}
-        <button className="cart-btn" type="button">
+        {/*Cart icon is a Link to cart (keeps the cart-btn class for styling)*/}
+        <Link to="/cart" className="cart-btn">
           🛒 Cart ({cartCount})
-        </button>
+        </Link>
       </div>
     </header>
   );

@@ -1,4 +1,5 @@
 import './Hero.css';
+import { Link } from 'react-router-dom';
 
 function Hero({
   title = 'Discover Premium Tech',
@@ -15,9 +16,10 @@ function Hero({
         <div className="hero-content">
           <h2 className="hero-title">{title}</h2>
           <p className="hero-subtitle">{subtitle}</p>
-          <button className="hero-cta" type="button">
+          {/* The button is now a Link to the Products page */}
+          <Link to="/products" className="hero-cta">
             {ctaText}
-          </button>
+          </Link>
         </div>
       </div>
     </section>
